@@ -3,7 +3,7 @@ export function PostsNew() {
   return (
     /* new blog post form */
     <div id="posts-new">
-      <h1>New post</h1>
+      <h2>New post</h2>
       <form>
         <div>
           Title: <input type="text" />
