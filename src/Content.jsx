@@ -1,5 +1,6 @@
 import { PostsIndex } from "./PostsIndex";
 import { PostsNew } from "./PostsNew";
+import { Modal } from "./Modal";
 
 // creates a content function to import recipe components
 export function Content() {
