@@ -6,16 +6,17 @@ import axios from "axios";
 
 // creates a content function to import recipe components
 export function Content() {
-  let posts = [];
+  // giving react the variable and the ability to set that variable
+  const [isPostsShowVisible, setIsPostsShowVisible] = useState(false);
+
+  const [posts, setPosts] = useState([]);
 
   const handleIndexPosts = () => {
     axios.get("http://localhost:3000/posts.json").then((response) => {
       console.log(response.data);
+      setPosts(response.data);
     });
   };
-
-  // giving react the variable and the ability to set that variable
-  const [isPostsShowVisible, setIsPostsShowVisible] = useState(false);
 
   // a function to toggle modal show ON
   const handleShowPost = () => {
