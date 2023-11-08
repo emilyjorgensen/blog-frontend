@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { PostsIndex } from "./PostsIndex";
 import { PostsNew } from "./PostsNew";
 import { Modal } from "./Modal";
@@ -11,6 +11,9 @@ export function Content() {
 
   const [posts, setPosts] = useState([]);
 
+  const [currentPost, setCurrentPost] = useState({});
+
+  // a function to make web request to index blog data
   const handleIndexPosts = () => {
     axios.get("http://localhost:3000/posts.json").then((response) => {
       console.log(response.data);
@@ -19,8 +22,9 @@ export function Content() {
   };
 
   // a function to toggle modal show ON
-  const handleShowPost = () => {
+  const handleShowPost = (post) => {
     setIsPostsShowVisible(true);
+    setCurrentPost(post);
   };
 
   // a function to toggle modal show OFF, closes modal
@@ -28,13 +32,18 @@ export function Content() {
     setIsPostsShowVisible(false);
   };
 
+  // react hook that calls the information to the page one time
+  useEffect(handleIndexPosts, []);
+
   return (
     <div>
       <PostsNew />
-      <button onClick={handleIndexPosts}>LOAD POSTS</button>
+      {/* <button onClick={handleIndexPosts}>LOAD POSTS</button> */}
       <PostsIndex posts={posts} onShowPost={handleShowPost} />
       <Modal show={isPostsShowVisible} onClose={handleClose}>
-        <p>TEST</p>
+        <h2>Title: {currentPost.title}</h2>
+        <img src={currentPost.image} alt="blog post image" />
+        <p>{currentPost.body}</p>
       </Modal>
     </div>
   );
