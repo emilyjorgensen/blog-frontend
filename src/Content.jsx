@@ -1,8 +1,9 @@
+import axios from "axios";
 import { useState, useEffect } from "react";
 import { PostsIndex } from "./PostsIndex";
 import { PostsNew } from "./PostsNew";
+import { PostsShow } from "./PostsShow";
 import { Modal } from "./Modal";
-import axios from "axios";
 
 // creates a content function to import recipe components
 export function Content() {
@@ -41,9 +42,7 @@ export function Content() {
       {/* <button onClick={handleIndexPosts}>LOAD POSTS</button> */}
       <PostsIndex posts={posts} onShowPost={handleShowPost} />
       <Modal show={isPostsShowVisible} onClose={handleClose}>
-        <h2>Title: {currentPost.title}</h2>
-        <img src={currentPost.image} alt="blog post image" />
-        <p>{currentPost.body}</p>
+        <PostsShow post={currentPost} />
       </Modal>
     </div>
   );
