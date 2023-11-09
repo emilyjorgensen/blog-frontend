@@ -1,10 +1,25 @@
-// new form moved into a file of its own function
+import axios from "axios";
+
 export function PostsNew() {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log("handle submit");
+    const params = new FormData(event.target);
+    axios
+      .post("http://localhost:3000/posts.json", params)
+      .then((response) => {
+        console.log(response.data);
+        event.target.reset();
+      })
+      .catch((error) => {
+        console.log(error.response.data.errors);
+      });
+  };
+
   return (
-    /* new blog post form */
     <div id="posts-new">
       <h2>New post</h2>
-      <form method="POST" action="http://localhost:3000/posts.json">
+      <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label className="form-label">Title</label>
           <input name="title" type="string" className="form-control" id="exampleFormControlInput1" />
@@ -26,7 +41,7 @@ export function PostsNew() {
           {/* SECOND LABEL for="exampleFormControlTextarea1" */}
         </div>
         <div>
-          <button type="submit" class="btn btn-secondary">
+          <button type="submit" className="btn btn-secondary">
             Submit
           </button>
         </div>

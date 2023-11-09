@@ -11,7 +11,13 @@ export function PostsIndex(props) {
               <img src={post.image} className="card-img-top" alt="blog post image" />
               <div className="card-body">
                 <h5 className="card-title">{post.title}</h5>
-                <button type="button" className="btn btn-secondary" onClick={() => props.onShowPost(post)}>
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  data-bs-toggle="modal"
+                  data-bs-target="#staticBackdrop"
+                  onClick={() => props.onShowPost(post)}
+                >
                   Read more!
                 </button>
                 <p className="card-text">

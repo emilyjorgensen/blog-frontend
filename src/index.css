@@ -1,4 +1,9 @@
-html {
+img {
+  height: 300px;
+  object-fit: cover;
+}
+
+/* html {
   scroll-behavior: smooth;
 }
 
@@ -35,4 +40,4 @@ header a:hover {
   width: 100%;
   height: 300px;
   object-fit: cover;
-}
+} */
