@@ -4,9 +4,9 @@ export function PostsIndex(props) {
   return (
     <div id="posts-index">
       <h2>All My Posts!</h2>
-      <div className="posts">
+      <div className="row row-cols-1 row-cols-md-2 g-4">
         {props.posts.map((post) => (
-          <div key={post.id} className="post">
+          <div key={post.id} className="col">
             <div className="card mb-3">
               <img src={post.image} className="card-img-top" alt="blog post image" />
               <div className="card-body">
