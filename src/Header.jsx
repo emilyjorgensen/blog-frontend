@@ -40,7 +40,8 @@ export function Header() {
           </div>
         </div>
       </nav>
-      <a href="#">Home</a> | <a href="#posts-index">All posts</a> | <a href="#posts-new">New post</a>
+      {/* old nave */}
+      {/* <a href="#">Home</a> | <a href="#posts-index">All posts</a> | <a href="#posts-new">New post</a> */}
       <h1>My Pretend Life</h1>
     </header>
   );
