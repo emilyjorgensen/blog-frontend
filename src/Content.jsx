@@ -55,6 +55,14 @@ export function Content() {
     });
   };
 
+  const handleDestroyPost = (post) => {
+    // eslint-disable-next-line no-unused-vars
+    axios.delete(`http://localhost:3000/posts/${post.id}.json`).then((response) => {
+      setPosts(posts.filter((p) => p.id !== post.id));
+      handleClose();
+    });
+  };
+
   // react hook that calls the information to the page one time
   useEffect(handleIndexPosts, []);
 
@@ -64,7 +72,7 @@ export function Content() {
       {/* <button onClick={handleIndexPosts}>LOAD POSTS</button> */}
       <PostsIndex posts={posts} onShowPost={handleShowPost} />
       <Modal show={isPostsShowVisible} onClose={handleClose}>
-        <PostsShow post={currentPost} onUpdatePost={handleUpdatePost} />
+        <PostsShow post={currentPost} onUpdatePost={handleUpdatePost} onDestroyPost={handleDestroyPost} />
       </Modal>
     </div>
   );

@@ -6,6 +6,10 @@ export function PostsShow(props) {
     event.target.reset();
   };
 
+  const handleClick = () => {
+    props.onDestroyPost(props.post);
+  };
+
   return (
     <div id="posts-show">
       <h2>{props.post.title}</h2>
@@ -14,16 +18,21 @@ export function PostsShow(props) {
 
       <form onSubmit={handleSubmit}>
         <div>
-          Title: <input defaultValue={props.post.title} name="title" type="text" />
+          Title: <input required defaultValue={props.post.title} name="title" type="text" />
         </div>
         <div>
-          Image URL: <input defaultValue={props.post.image} name="image" type="text" />
+          Image URL: <input required defaultValue={props.post.image} name="image" type="text" />
         </div>
         <div>
-          Title: <input defaultValue={props.post.body} name="body" type="text" />
+          Title: <input required defaultValue={props.post.body} name="body" type="text" />
         </div>
-        <button type="submit">Update post</button>
+        <button type="submit" data-bs-dismiss="modal">
+          Update post
+        </button>
       </form>
+      <button onClick={handleClick} data-bs-dismiss="modal">
+        Delete post
+      </button>
     </div>
   );
 }
