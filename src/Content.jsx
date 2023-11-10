@@ -33,12 +33,18 @@ export function Content() {
     setIsPostsShowVisible(false);
   };
 
+  const handleCreatePost = (params) => {
+    axios.post("http://localhost:3000/posts.json", params).then((response) => {
+      setPosts([...posts, response.data]);
+    });
+  };
+
   // react hook that calls the information to the page one time
   useEffect(handleIndexPosts, []);
 
   return (
     <div className="container">
-      <PostsNew />
+      <PostsNew  onCreatePost={handleCreatePost}/>
       {/* <button onClick={handleIndexPosts}>LOAD POSTS</button> */}
       <PostsIndex posts={posts} onShowPost={handleShowPost} />
       <Modal show={isPostsShowVisible} onClose={handleClose}>
