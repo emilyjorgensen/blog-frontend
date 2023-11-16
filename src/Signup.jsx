@@ -1,8 +1,12 @@
 import axios from "axios";
+import { useState } from "react";
 
 export function Signup() {
+  const [errors, setErrors] = useState([]);
+
   const handleSubmit = (event) => {
     event.preventDefault();
+    setErrors([]);
     const params = new FormData(event.target);
     console.log("handle submit", params);
     axios
@@ -10,14 +14,21 @@ export function Signup() {
       .then((response) => {
         console.log(response.data);
         event.target.reset();
+        window.location.href = "/"; // Change this to hide a modal, redirect to a specific page, etc.
       })
       .catch((error) => {
         console.log(error.response.data.errors);
+        setErrors(error.response.data.errors);
       });
   };
 
   return (
     <div id="signup">
+      <ul>
+        {errors.map((error) => (
+          <li key={error}>{error}</li>
+        ))}
+      </ul>
       <form onSubmit={handleSubmit}>
         <div>
           Name: <input name="name" type="text" />
