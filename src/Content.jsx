@@ -4,6 +4,7 @@ import { PostsIndex } from "./PostsIndex";
 import { PostsNew } from "./PostsNew";
 import { PostsShow } from "./PostsShow";
 import { Modal } from "./Modal";
+import { Signup } from "./Signup";
 
 // creates a content function to import recipe components
 export function Content() {
@@ -68,6 +69,8 @@ export function Content() {
 
   return (
     <div className="container">
+      <h3>Sign Up!</h3>
+      <Signup />
       <PostsNew onCreatePost={handleCreatePost} />
       {/* <button onClick={handleIndexPosts}>LOAD POSTS</button> */}
       <PostsIndex posts={posts} onShowPost={handleShowPost} />
