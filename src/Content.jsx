@@ -5,6 +5,7 @@ import { PostsNew } from "./PostsNew";
 import { PostsShow } from "./PostsShow";
 import { Modal } from "./Modal";
 import { Signup } from "./Signup";
+import { Login } from "./Login";
 
 // creates a content function to import recipe components
 export function Content() {
@@ -69,6 +70,8 @@ export function Content() {
 
   return (
     <div className="container">
+      <h3>Log In!</h3>
+      <Login />
       <h3>Sign Up!</h3>
       <Signup />
       <PostsNew onCreatePost={handleCreatePost} />
