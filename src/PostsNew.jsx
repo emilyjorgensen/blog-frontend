@@ -5,6 +5,7 @@ export function PostsNew(props) {
     console.log("handle submit", params);
     props.onCreatePost(params);
     event.target.reset();
+    window.location.href = "/posts";
   };
 
   return (
