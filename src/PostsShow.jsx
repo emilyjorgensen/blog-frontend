@@ -24,7 +24,7 @@ export function PostsShow(props) {
           Image URL: <input required defaultValue={props.post.image} name="image" type="text" />
         </div>
         <div>
-          Title: <input required defaultValue={props.post.body} name="body" type="text" />
+          Body: <input required defaultValue={props.post.body} name="body" type="text" />
         </div>
         <button type="submit" data-bs-dismiss="modal">
           Update post

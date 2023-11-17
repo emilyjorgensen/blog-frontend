@@ -8,6 +8,7 @@ import { PostsShow } from "./PostsShow";
 import { Modal } from "./Modal";
 import { Login } from "./Login";
 import { LogoutLink } from "./LogoutLink";
+import { PostsShowPage } from "./PostsShowPage";
 
 // creates a content function to import recipe components
 export function Content() {
@@ -77,6 +78,7 @@ export function Content() {
         <Route path="/login" element={<Login />} />
         <Route path="/posts/new" element={<PostsNew onCreatePost={handleCreatePost} />} />
         <Route path="/posts" element={<PostsIndex posts={posts} onShowPost={handleShowPost} />} />
+        <Route path="/posts/:id" element={<PostsShowPage />} />
       </Routes>
 
       <LogoutLink />
