@@ -16,7 +16,7 @@ export function Header() {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <a className="navbar-brand" href="#">
+          <a className="navbar-brand" href="/">
             Home
           </a>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
@@ -27,14 +27,14 @@ export function Header() {
                 </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#posts-index">
+                <Link className="nav-link active" aria-current="page" to="/posts">
                   All Posts
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#posts-new">
+                <Link className="nav-link" to="/posts/new">
                   Create a Post
-                </a>
+                </Link>
               </li>
             </ul>
             <form className="d-flex" role="search">
