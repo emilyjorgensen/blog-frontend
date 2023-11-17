@@ -1,4 +1,5 @@
-// moved to separate file
+import { Link } from "react-router-dom";
+
 export function Header() {
   return (
     <header>
@@ -20,6 +21,11 @@ export function Header() {
           </a>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+              <li className="nav-item">
+                <Link to="/signup" className="nav-link active" aria-current="page">
+                  Signup
+                </Link>
+              </li>
               <li className="nav-item">
                 <a className="nav-link active" aria-current="page" href="#posts-index">
                   All Posts

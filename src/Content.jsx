@@ -1,10 +1,11 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
+import { Signup } from "./Signup";
 import { PostsIndex } from "./PostsIndex";
 import { PostsNew } from "./PostsNew";
 import { PostsShow } from "./PostsShow";
 import { Modal } from "./Modal";
-import { Signup } from "./Signup";
 import { Login } from "./Login";
 import { LogoutLink } from "./LogoutLink";
 
@@ -71,6 +72,10 @@ export function Content() {
 
   return (
     <div className="container">
+      <Routes>
+        <Route path="/signup" element={<Signup />} />
+      </Routes>
+
       <h3>Log In!</h3>
       <Login />
       <LogoutLink />
